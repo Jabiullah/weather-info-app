@@ -11,11 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const detailsElem = document.getElementById('details');
     const feelsElem = document.getElementById('feels');
     const weatherInfo = document.querySelector('.weather-info');
-    const themeButton = document.getElementById('themeButton');
-    const body = document.body;
 
     const fetchWeather = (city) => {
-        fetch(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`)
+        fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`)
             .then(response => {
                 if (!response.ok) {
                     if (response.status >= 400 && response.status < 500) {
@@ -31,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => {
                 const { location, current } = data;
                 locationElem.textContent = `${location.name}, ${location.country}`;
-                weatherIcon.src = `http:${current.condition.icon}`;
+                weatherIcon.src = `https:${current.condition.icon}`;
                 temperatureElem.textContent = `Temperature: ${current.temp_c}°C / ${current.temp_f}°F`;
                 conditionElem.textContent = `Condition: ${current.condition.text}`;
                 detailsElem.textContent = `Humidity: ${current.humidity}% | Wind: ${current.wind_kph} kph`;
@@ -50,18 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
             fetchWeather(city);
         } else {
             alert('Please enter a city name');
-        }
-    });
-
-    themeButton.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        const icon = themeButton.querySelector('i');
-        if (body.classList.contains('dark-mode')) {
-            icon.classList.remove('fa-sun');
-            icon.classList.add('fa-moon');
-        } else {
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
         }
     });
 
