@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const detailsElem = document.getElementById('details');
     const feelsElem = document.getElementById('feels');
     const weatherInfo = document.querySelector('.weather-info');
+    const themeButton = document.getElementById('themeButton');
 
     const fetchWeather = (city) => {
         fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`)
@@ -50,6 +51,16 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Please enter a city name');
         }
     });
-
+    themeButton.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        const icon = themeButton.querySelector('i');
+        if (body.classList.contains('dark-mode')) {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        } else {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+    });
     fetchWeather(defaultCity);
 });
