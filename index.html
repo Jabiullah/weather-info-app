@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Weather</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    
+    <h1>Weather Information</h1>
+    
+    <div class="theme-toggle">
+        <span id="themeButton"><i class="fas fa-sun"></i></span>
+    </div>
+
+    <div class="container">
+    
+        <div class="search-box">
+            <input type="text" id="cityInput" placeholder="Enter a city">
+            <button id="searchButton">Search</button>
+        </div>
+    
+        <div class="weather-info">
+            <h4 id="location">Dhaka, Bangladesh</h4>
+            <img id="weatherIcon" src="" alt="Weather Icon">
+            <p id="temperature"></p>
+            <p id="condition"></p>
+            <p id="details"></p>
+            <p id="feels"></p>
+        </div>
+    
+    </div>
+    
+    <footer>
+        <p>Powered by <a href="https://www.weatherapi.com/" target="_blank">WeatherAPI.com</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
