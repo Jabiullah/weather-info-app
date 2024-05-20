@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const feelsElem = document.getElementById('feels');
     const weatherInfo = document.querySelector('.weather-info');
     const themeButton = document.getElementById('themeButton');
+    const body = document.body;
 
     const fetchWeather = (city) => {
         fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`)
